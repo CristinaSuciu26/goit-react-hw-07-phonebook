@@ -4,13 +4,14 @@ import axios from 'axios';
 axios.defaults.baseURL = 'https://65f078e0da8c6584131bdaeb.mockapi.io/contacts';
 
 export const fetchContacts = createAsyncThunk(
-  'contacts/fetchAll',
-  async (_, thunkAPI) => {
+  'contacts/fetchContacts',
+  async () => {
     try {
-      const response = await axios.get('/contacts');
-      return response.data;
+      const response = await fetch('/contacts');
+      const data = await response.json();
+      return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      throw new Error('Failed to fetch contacts');
     }
   }
 );
