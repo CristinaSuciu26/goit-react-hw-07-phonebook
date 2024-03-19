@@ -4,10 +4,10 @@ import { fetchContacts, addContact, deleteContact } from '../operations';
 export const contactSlice = createSlice({
   name: 'contacts',
   initialState: {
-    items: [], // Items should be at the top level of the state
+    items: [],
     isLoading: false,
     error: null,
-    filter: '', // Filter should also be at the top level
+    filter: '',
   },
   reducers: {
     updateFilter: (state, action) => {
